@@ -2,26 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html,
+body {
+  height: 100vh;
+  overflow: auto;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    -45deg,
+    rgba(54, 54, 102, 1) 0%,
+    rgba(113, 89, 193, 1) 100%
+  );
+  -webkit-font-smoothing: antialiased;
+  color: #333;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: url('../assets/background.svg') no-repeat center -60px/101vw;
+  z-index: -5;
+
+  @media (max-width: 1200px) {
+    background: url('../assets/background.svg') no-repeat center top;
+  }
+}
+
+body,
+input,
+button {
+  font: 14px 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+}
+
+button {
+  cursor: pointer;
 }
